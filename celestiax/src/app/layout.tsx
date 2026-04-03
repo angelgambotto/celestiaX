@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
 
-  themeColor: "#020617", // dark space vibe
+  // themeColor: "#020617", // dark space vibe
 };
 
 export default function RootLayout({

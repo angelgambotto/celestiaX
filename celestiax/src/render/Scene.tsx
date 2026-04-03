@@ -5,29 +5,22 @@ import { OrbitControls } from '@react-three/drei'
 import { Camera } from './Camera'
 import { SkyDome } from './SkyDome'
 import { Stars } from './Stars'
+import { Galaxy } from './Galaxy'
 
 export function Scene() {
   return (
-    <Canvas
-      style={{ width: '100%', height: '100%' }}
-      gl={{ antialias: true }}
-    >
-      {/* Cámara */}
+    <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
       <Camera />
 
-      {/* Luces */}
-      <ambientLight intensity={0.2} />
-
-      {/* Cielo */}
       <SkyDome />
-
-      {/* Estrellas */}
+      <Galaxy />
       <Stars />
 
-      {/* Controles */}
       <OrbitControls
         enableDamping
         rotateSpeed={0.5}
+        minDistance={3}
+        maxDistance={30}
       />
     </Canvas>
   )
