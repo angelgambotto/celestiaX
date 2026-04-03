@@ -3,6 +3,8 @@
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { Camera } from './Camera'
+import { SkyDome } from './SkyDome'
+import { Stars } from './Stars'
 
 export function Scene() {
   return (
@@ -14,18 +16,19 @@ export function Scene() {
       <Camera />
 
       {/* Luces */}
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[3, 4, 5]} intensity={1} />
+      <ambientLight intensity={0.2} />
 
-      {/* Objeto de prueba (cubo) */}
-      <mesh>
-        {/* <boxGeometry args={[1, 2, 1]} /> */}
-        <sphereGeometry args={[2]}/>
-        <meshStandardMaterial color="red" />
-      </mesh>
+      {/* Cielo */}
+      <SkyDome />
+
+      {/* Estrellas */}
+      <Stars />
 
       {/* Controles */}
-      <OrbitControls enableDamping />
+      <OrbitControls
+        enableDamping
+        rotateSpeed={0.5}
+      />
     </Canvas>
   )
 }
