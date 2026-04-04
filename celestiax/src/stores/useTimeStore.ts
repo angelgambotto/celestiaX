@@ -2,16 +2,29 @@
 import { create } from 'zustand';
 
 export interface TimeState {
-  currentTime: number;           // timestamp en ms (Date.now())
+  currentTime: number;
+  isPlaying: boolean;
+  speed: number;           // multiplicador (3600 = 1 hora por segundo real)
+
   setCurrentTime: (timestamp: number) => void;
   resetToNow: () => void;
+  togglePlay: () => void;
+  setSpeed: (speed: number) => void;
 }
 
-// Para futuras mejoras (play/pause) ya dejamos preparado el shape
-export const useTimeStore = create<TimeState>((set) => ({
+export const useTimeStore = create<TimeState>((set, get) => ({
   currentTime: Date.now(),
+  isPlaying: false,
+  speed: 3600,
 
   setCurrentTime: (timestamp) => set({ currentTime: timestamp }),
 
-  resetToNow: () => set({ currentTime: Date.now() }),
+  resetToNow: () => set({ 
+    currentTime: Date.now(), 
+    isPlaying: false 
+  }),
+
+  togglePlay: () => set((state) => ({ isPlaying: !state.isPlaying })),
+
+  setSpeed: (newSpeed) => set({ speed: newSpeed }),
 }));
