@@ -10,6 +10,9 @@ import { Stars } from './Stars';
 import { Galaxy } from './Galaxy';
 import { Sun } from './Sun';
 import { Moon } from './Moon';
+import { Venus } from './planets/Venus';
+import { Mars } from './planets/Mars';
+import { Jupiter } from './planets/Jupiter';
 
 export function Scene() {
   return (
@@ -24,6 +27,9 @@ export function Scene() {
       {/* <Stars /> */}
       <Sun />
       <Moon />
+      <Venus />
+      <Mars />
+      <Jupiter />
 
       <OrbitControls
         enableDamping
