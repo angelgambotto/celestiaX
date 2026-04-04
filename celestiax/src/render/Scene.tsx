@@ -8,6 +8,8 @@ import { Camera } from './Camera';
 import { SkyDome } from './SkyDome';
 import { Stars } from './Stars';
 import { Galaxy } from './Galaxy';
+import { Sun } from './Sun';
+import { Moon } from './Moon';
 
 export function Scene() {
   return (
@@ -19,13 +21,15 @@ export function Scene() {
       <Camera />
       <SkyDome />
       <Galaxy />
-      <Stars />
+      {/* <Stars /> */}
+      <Sun />
+      <Moon />
 
       <OrbitControls
         enableDamping
         dampingFactor={0.08}
         rotateSpeed={0.5}
-        minDistance={3}
+        minDistance={1}
         maxDistance={50}
         enablePan={false}
       />
